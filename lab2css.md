@@ -37,6 +37,8 @@ body {
 
 Style w `<style>` przesłaniają te w `styles.css`
 
+Prosty przykład: https://jsfiddle.net/dh5uv14t/17/
+
 # Bardziej zaawansowane selektory
 
 ``` css
