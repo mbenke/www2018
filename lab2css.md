@@ -47,8 +47,8 @@ Prosty przykład: https://jsfiddle.net/dh5uv14t/17/
 # Bardziej zaawansowane selektory
 
 ``` css
-#leftnav a { color: green; }
-#content h2 { color: red; }
+#leftnav a { color: green; } /* a, potomek #leftnav */
+#content h2 { color: red; } /* h2, potomek #content */
 ```
 
 ``` html
@@ -60,6 +60,11 @@ Prosty przykład: https://jsfiddle.net/dh5uv14t/17/
     <h2>Tytuł </h2>         <!-- #content h2 -->
   </div>
 </body>	
+```
+
+``` css
+/* li, dziecko ul class="menu" */
+ul.menu>li { display: inline; margin-left: 6px; margin-right: 6px;}
 ```
 
 Bardziej rozbudowany przykład: https://jsfiddle.net/11fw2y6x/31/
