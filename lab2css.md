@@ -102,3 +102,9 @@ Najważniejsze:
 [w3schools.com/cssref/css_units.asp](http://www.w3schools.com/cssref/css_units.asp)
 
 [7 CSS Units You Might Not Know About](http://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573)
+
+# Responsive Web Design
+
+* [RWD Intro](https://www.w3schools.com/css/css_rwd_intro.asp)
+* [Viewport](https://www.w3schools.com/css/css_rwd_viewport.asp)
+
