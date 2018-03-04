@@ -62,6 +62,8 @@ Prosty przykład: https://jsfiddle.net/dh5uv14t/17/
 </body>	
 ```
 
+Bardziej rozbudowany przykład: https://jsfiddle.net/11fw2y6x/31/
+
 # Firefox Inspector
 
 * Tools->Web Developer->Inspector
