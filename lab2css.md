@@ -1,6 +1,8 @@
-% Aplikacje WWW
-% Marcin Benke
-% 8 marca 2018
+---
+title: Aplikacje WWW
+author: Marcin Benke
+date: 8 marca 2018
+---
 
 # CSS = Cascading Style Sheets
 * `<style>... </style>`
