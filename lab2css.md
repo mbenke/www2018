@@ -7,7 +7,7 @@ date: 8 marca 2018
 # CSS = Cascading Style Sheets
 * `<style>... </style>`
 * `<link href="foo.css" type="text/css" rel="stylesheet">`
-* [http://www.cssbasics.com/css-syntax/](http://www.cssbasics.com/css-syntax/)
+
 
 ```css
 body {
@@ -19,6 +19,11 @@ body {
 
 .centered { text-align: center; } /* <foo class="centered" */
 ```
+
+## Polecane materiały
+* https://internetingishard.com/html-and-css/
+* https://www.w3schools.com/css/default.asp
+* [http://www.cssbasics.com/css-syntax/](http://www.cssbasics.com/css-syntax/)
 
 # Cascading
 
