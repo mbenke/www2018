@@ -21,8 +21,8 @@ body {
 ```
 
 ## Polecane materiały
-* https://internetingishard.com/html-and-css/
-* https://www.w3schools.com/css/default.asp
+* <https://internetingishard.com/html-and-css/>
+* <https://www.w3schools.com/css/default.asp>
 * [http://www.cssbasics.com/css-syntax/](http://www.cssbasics.com/css-syntax/)
 
 # Cascading
@@ -42,7 +42,7 @@ body {
 
 Style w `<style>` przesłaniają te w `styles.css`
 
-Prosty przykład: https://jsfiddle.net/dh5uv14t/17/
+Prosty przykład: <https://jsfiddle.net/dh5uv14t/17/>
 
 # Bardziej zaawansowane selektory
 
@@ -67,7 +67,7 @@ Prosty przykład: https://jsfiddle.net/dh5uv14t/17/
 ul.menu>li { display: inline; margin-left: 6px; margin-right: 6px;}
 ```
 
-Bardziej rozbudowany przykład: https://jsfiddle.net/11fw2y6x/31/
+Bardziej rozbudowany przykład: <https://jsfiddle.net/11fw2y6x/31/>
 
 # Firefox Inspector
 
