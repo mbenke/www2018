@@ -11,4 +11,4 @@ DESTDIR=.
 	@test -f $<
 	$(PANDOC) -s -t slidy -o $(DESTDIR)/$@ $<
 
-all: css-slides.html dom-slides.html jquery-slides.html
+all: lab1-slides.html lab2css-slides.html #dom-slides.html jquery-slides.html
