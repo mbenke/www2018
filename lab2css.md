@@ -20,6 +20,23 @@ body {
 
 # Cascading
 
+``` html
+<head>
+  <meta charset='UTF-8'/>
+  <title>Dummy</title>
+  <link rel='stylesheet' href='styles.css'/>
+  <style>
+    body {
+      color: #0000FF;    /* Blue */
+    }
+  </style>
+</head>
+```
+
+Style w `<style>` przesłaniają te w `styles.css`
+
+# Bardziej zaawansowane selektory
+
 ``` css
 #leftnav a { color: green; }
 #content h2 { color: red; }
