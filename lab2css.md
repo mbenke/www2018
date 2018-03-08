@@ -96,6 +96,14 @@ text-align: left;
 }
 ```
 
+# Display
+
+* `block`
+* `inline`
+* `none`
+
+<https://www.w3schools.com/css/css_display_visibility.asp>
+
 # Jednostki miary
 
 Najważniejsze:
