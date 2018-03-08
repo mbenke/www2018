@@ -120,4 +120,12 @@ Najważniejsze:
 
 * [RWD Intro](https://www.w3schools.com/css/css_rwd_intro.asp)
 * [Viewport](https://www.w3schools.com/css/css_rwd_viewport.asp)
+* [Media queries](https://www.w3schools.com/css/css3_mediaqueries.asp)
 
+``` css
+@media screen and (min-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+```
