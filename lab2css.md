@@ -41,7 +41,9 @@ body {
 </head>
 ```
 
-Style w `<style>` przesłaniają te w `styles.css`
+* Style w `<style>` przesłaniają te w `styles.css`
+* Elementy dziedziczą styl po przodkach
+* Bardziej specyficzne własności przesłaniają ogólniejsze
 
 Prosty przykład: <https://jsfiddle.net/dh5uv14t/17/>
 
