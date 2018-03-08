@@ -72,12 +72,14 @@ ul.menu>li { display: inline; margin-left: 6px; margin-right: 6px;}
 
 Bardziej rozbudowany przykład: <https://jsfiddle.net/11fw2y6x/31/>
 
-# Firefox Inspector
+# Inspector
 
-* Tools->Web Developer->Inspector
+* W Firefox Tools->Web Developer->Inspector
 * Narzędzia->Dla twórców witryn->Inspektor
 * `Shift+Ctrl+C`
-* Obejrzyjmy [http://benke.org/example1](http://benke.org/example1)
+* W Chrome Narzędzia dla programistów (`Ctrl+Shift+I`)
+
+Obejrzyjmy <https://developer.mozilla.org/en-US/docs/Learn/CSS>
 
 # Box model
 
