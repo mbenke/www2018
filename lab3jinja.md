@@ -128,3 +128,9 @@ Szablon bazowy
 <http://jinja.readthedocs.io/en/stable/>
 
 <https://realpython.com/blog/python/primer-on-jinja-templating/>
+
+# Ćwiczenie
+
+* Na podstawie swojej strony z wynikami wyborów stwórz szablon Jinja
+* Użyj konstrukcji `%for` tam gdzie potrzeba (np. w tabelach)
+* Napisz program wypełniający szablon danymi
