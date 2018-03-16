@@ -182,3 +182,18 @@ Ograniczony zbiór wyrażeń <http://jinja.readthedocs.io/en/stable/templates.ht
 * Na podstawie swojej strony z wynikami wyborów stwórz szablon Jinja
 * Użyj konstrukcji `%for` tam gdzie potrzeba (np. w tabelach)
 * Napisz program wypełniający szablon danymi
+
+# Szablony Django "bez Django"
+
+```
+>>> from django.template import Template, Context
+>>> from django.template.engine import Engine
+>>> e = Engine(dirs=["."])
+>>> t = e.from_string("<h1> {{ name }} </h1> "
+... )
+>>> c = Context({ 'name': 'foo' })
+>>> t.render(c)
+'<h1> foo </h1> '
+>>> t = e.get_template('hello.html')
+>>> t.render(c)
+```
