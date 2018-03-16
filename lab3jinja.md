@@ -135,6 +135,27 @@ Wartości zmiennych podstawianych w szablonie mogą być modyfikowane przez filt
 
 <http://jinja.readthedocs.io/en/stable/templates.html#builtin-filters>
 
+# Pętle
+
+```
+<ul>
+{% for user in users %}
+  <li>{{ user.username|e }}</li>
+{% endfor %}
+</ul>
+```
+
+```
+<dl>
+{% for key, value in my_dict.iteritems() %}
+    <dt>{{ key|e }}</dt>
+    <dd>{{ value|e }}</dd>
+{% endfor %}
+</dl>
+```
+ale uwaga - słowniki nie są uporządkowane
+
+<http://jinja.readthedocs.io/en/stable/templates.html#list-of-control-structures>
 
 # Więcej
 
