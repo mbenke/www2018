@@ -35,7 +35,7 @@ System szablonów bardazo podobny do tego w Django
   <body>
     <h1>Hello, {{ name }}</h1>
     <p>My favorite numbers:
-      {% for n in range(1,10) %}{{n}} {% endfor %}</p>
+      {% for n in numbers %}{{n}} {% endfor %}</p>
   </body>
 </html>
 ```
@@ -49,7 +49,7 @@ loader = FileSystemLoader('./templates')
 env = Environment(loader=loader, autoescape=select_autoescape(['html', 'xml']))
 
 hello = env.get_template('hello.html')
-print(hello.render(name='<foo&bar>'))
+print(hello.render(name='<foo&bar>', numbers=range(1..10)))
 ```
 
 # Kontekst
@@ -191,7 +191,7 @@ Ograniczony zbiór wyrażeń <http://jinja.readthedocs.io/en/stable/templates.ht
 >>> e = Engine(dirs=["."])
 >>> t = e.from_string("<h1> {{ name }} </h1> "
 ... )
->>> c = Context({ 'name': 'foo' })
+>>> c = Context({ 'name': 'foo', 'numbers': range(1,10) })
 >>> t.render(c)
 '<h1> foo </h1> '
 >>> t = e.get_template('hello.html')

@@ -4,4 +4,4 @@ loader = FileSystemLoader('./templates')
 env = Environment(loader=loader, autoescape=select_autoescape(['html', 'xml']))
 
 hello = env.get_template('hello.html')
-print(hello.render(name='<foo&bar>'))
+print(hello.render(name='<foo&bar>', numbers=range(1,10)))
