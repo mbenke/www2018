@@ -157,6 +157,20 @@ ale uwaga - słowniki nie są uporządkowane
 
 <http://jinja.readthedocs.io/en/stable/templates.html#list-of-control-structures>
 
+# If
+
+```
+{% if kenny.sick %}
+    Kenny is sick.
+{% elif kenny.dead %}
+    You killed Kenny!  You bastard!!!
+{% else %}
+    Kenny looks okay --- so far
+{% endif %}
+```
+
+Ograniczony zbiór wyrażeń <http://jinja.readthedocs.io/en/stable/templates.html#expressions>
+
 # Więcej
 
 <http://jinja.readthedocs.io/en/stable/>
