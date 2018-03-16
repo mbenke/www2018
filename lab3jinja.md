@@ -1,8 +1,8 @@
 ---
 title: Aplikacje WWW
-subtitle: szablony Jinja
+subtitle: Szablony Jinja
 author: Marcin Benke
-date: 8 marca 2018
+date: 16 marca 2018
 ---
 
 # virtualenv
