@@ -123,6 +123,19 @@ Szablon bazowy
 </body>
 ```
 
+# Filtry
+
+Wartości zmiennych podstawianych w szablonie mogą być modyfikowane przez filtry, np.
+
+```
+{{ user.name|escape }}
+{{ user.name|e }}
+{{ name|striptags|title }}
+```
+
+<http://jinja.readthedocs.io/en/stable/templates.html#builtin-filters>
+
+
 # Więcej
 
 <http://jinja.readthedocs.io/en/stable/>
