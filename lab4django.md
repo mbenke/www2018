@@ -73,3 +73,30 @@ INSTALLED_APPS = [
 ```
 
 # Edycja modeli
+
+```
+(lab3) lab4$ emacs -nw a/models.py 
+from django.db import models
+
+class Kandydat(models.Model):
+    imie = models.CharField(max_length=42)
+    nazwisko = models.CharField(max_length=42)
+    pesel = models.CharField(max_length=11)
+```
+
+# Migracje
+
+```
+(lab3) lab4$ ./manage.py check
+System check identified no issues (0 silenced).
+(lab3) lab4$ ./manage.py makemigrations
+Migrations for 'a':
+  a/migrations/0001_initial.py
+    - Create model Kandydat
+(lab3) lab4$ ./manage.py migrate
+Operations to perform:
+  Apply all migrations: a, admin, auth, contenttypes, sessions
+Running migrations:
+  Applying a.0001_initial... OK
+  ...
+```
