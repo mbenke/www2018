@@ -44,18 +44,6 @@ Na początek proponuję szybko przerobić tutorial, części 1 i 2
 
 <https://docs.djangoproject.com/en/2.0/intro/tutorial01/>
 
-# Zadania z modeli
-
-Zadania z modeli
-
-* Napisz modele dla: kandydata, obwodu, gminy,i okręgu (nie cała gmina jest w okręgu) i wyniku kandydata w obwodzie
-* Zaimportuj dane z pliku CSV
-* Wypisz sumę głosów dla każdego kandydata w całym kraju (imię, nazwisko, liczba głosów)
-* Wypisz sumę głosów dla każdego kandydata w podziale na okręgi (numer okręgu, imię, nazwisko, liczba głosów)
-* Wypisz obwody w których brakuje wyników dla co najmniej jednego z kandydatów (nazwa gminy, numer obwodu)
-* Wypisz obwody w których brakuje wyników dokładnie jednego z kandydatów (nazwa gminy, numer obwodu)
-* Wypisz największą i najmniejszą liczbę głosów, którą uzyskał każdy z kandydatów w obwodach w których uprawnionych do głosowania było między 1000 a 2000 osób
-
 # Tworzenie projektu i aplikacji
 
 ```
@@ -152,3 +140,14 @@ from a import models
 
 print(models.Kandydat.objects.get(pk=1))
 ```
+
+# Zadania z modeli
+
+* Napisz modele dla: kandydata, obwodu, gminy,i okręgu (nie cała gmina jest w okręgu) i wyniku kandydata w obwodzie
+* Zaimportuj dane z pliku CSV
+* Wypisz sumę głosów dla każdego kandydata w całym kraju (imię, nazwisko, liczba głosów)
+* Wypisz sumę głosów dla każdego kandydata w podziale na okręgi (numer okręgu, imię, nazwisko, liczba głosów)
+* Wypisz obwody w których brakuje wyników dla co najmniej jednego z kandydatów (nazwa gminy, numer obwodu)
+* Wypisz obwody w których brakuje wyników dokładnie jednego z kandydatów (nazwa gminy, numer obwodu)
+* Wypisz największą i najmniejszą liczbę głosów, którą uzyskał każdy z kandydatów w obwodach w których uprawnionych do głosowania było między 1000 a 2000 osób
+
