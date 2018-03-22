@@ -100,3 +100,43 @@ Running migrations:
   Applying a.0001_initial... OK
   ...
 ```
+
+# Obsługa modeli z shella pythona
+
+```
+(lab3) lab4$ ./manage.py shell -i ipython
+Python 3.4.3 (default, Nov 28 2017, 16:40:41) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from a.models import *
+
+In [2]: for i in range(5):
+   ...:     Kandydat.objects.create(imie=i, nazwisko=i, pesel=i)
+   ...:     
+
+In [3]: for k in Kandydat.objects.all():
+   ...:     print(k)
+   ...:     
+Kandydat object (1)
+Kandydat object (2)
+Kandydat object (3)
+Kandydat object (4)
+Kandydat object (5)
+```
+
+# Obsługa modeli z shella bazy danych
+
+```
+(lab3) lab4$ ./manage.py dbshell
+SQLite version 3.8.2 2013-12-06 14:53:30
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> select * from a_kandydat;
+1|0|0|0
+2|1|1|1
+3|2|2|2
+4|3|3|3
+5|4|4|4
+sqlite> 
+```
