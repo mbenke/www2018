@@ -55,3 +55,21 @@ Zadania z modeli
 * Wypisz obwody w których brakuje wyników dla co najmniej jednego z kandydatów (nazwa gminy, numer obwodu)
 * Wypisz obwody w których brakuje wyników dokładnie jednego z kandydatów (nazwa gminy, numer obwodu)
 * Wypisz największą i najmniejszą liczbę głosów, którą uzyskał każdy z kandydatów w obwodach w których uprawnionych do głosowania było między 1000 a 2000 osób
+
+# Tworzenie projektu i aplikacji
+
+```
+(lab3) Django$ django-admin startproject lab4
+(lab3) Django$ ls lab4
+lab4  manage.py
+(lab3) Django$ cd lab4 && ./manage.py startapp a
+(lab3) lab4$ ls
+a  lab4  manage.py
+(lab3) lab4$ emacs -nw lab4/settings.py
+INSTALLED_APPS = [
+...
+    'a',
+]
+```
+
+# Edycja modeli
