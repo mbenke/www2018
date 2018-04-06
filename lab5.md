@@ -13,4 +13,4 @@ Oddajemy Zadanie 1 a poza tym:
 * Tworzymy manager, który potrafi wybrać obwody duże (większe niż 2000 uprawnionych)
 * Logowanie. Należy zrobić logowanie przy użyciu standardowych mechanizmów django. (patrz np. <https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/> )
 * Formularz w funkcji. Należy zalogowanym użytkownikom pozwolić na edycję opisu (pole tekstowe) okręgu, oraz na dodawanie i usuwanie okręgów.
-* Formularz klasowy. Należy zalogowanym użytkownikom pozwolić na to co powyżej przy użyciu formularzy klasowych.
+* Formularz klasowy. Należy zalogowanym użytkownikom pozwolić na to co powyżej przy użyciu formularzy klasowych - w razie potrzeby patrz <https://tutorial.djangogirls.org/pl/django_forms/>
