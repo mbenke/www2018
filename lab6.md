@@ -190,8 +190,6 @@ Destroying test database for alias 'default'...
 
 ```
 class ResultsTest(CommunityReferendumTestSetup, TestCase):
-    PASSWORD = 'password'
-
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData() # CommunityReferendumTestSetup
@@ -202,7 +200,8 @@ class ResultsTest(CommunityReferendumTestSetup, TestCase):
                 "invalid_votes": 2, "valid_votes": 5, "valid_votes_no": 3, "valid_votes_yes": 2
             }],
         }
-        cls.protocol_1 = PollstationProtocol(pollstation=cls.pollstation_1, status=PollstationProtocol.ACCEPTED,
+        cls.protocol_1 = PollstationProtocol(pollstation=cls.pollstation_1,
+            status=PollstationProtocol.ACCEPTED,
             hash_value='hash1111', voting_start=cls.voting_start, voting_end_hour=time(21, 0),
             headquaters="head", json_file=protocol_1_json)
         cls.protocol_1.save()
@@ -224,9 +223,9 @@ class ResultsTest(CommunityReferendumTestSetup, TestCase):
             self.assertEqual(results.passed, True)
 
     def call_view(self):
-        response = self.client.\
-            get(resolve_url('ref_close', ResultsTest.ref_round.id,
-                            ResultsTest.question.id, self.comm.id), follow=True)
+        response = self.client.get(
+	    resolve_url('ref_close', ResultsTest.ref_round.id,
+                        ResultsTest.question.id, self.comm.id), follow=True)
         self.assertRedirects(response, resolve_url('ref_results', ResultsTest.ref_round.id))
 
         self.context = response.context
