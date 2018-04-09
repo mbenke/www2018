@@ -26,6 +26,11 @@ body {
 * [http://www.cssbasics.com/css-syntax/](http://www.cssbasics.com/css-syntax/)
 * <https://developer.mozilla.org/en-US/docs/Learn/CSS>
 
+Alternatywne (nauka przez zabawę):
+* <https://flukeout.github.io/>
+* <https://cssgridgarden.com/>
+* <http://flexboxfroggy.com/>
+
 # Cascading
 
 ``` html
