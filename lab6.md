@@ -126,7 +126,7 @@ Django 1.9 (od 1.10 nowy system, ale stary też działa)
 `settings.py`:
 ```
 MIDDLEWARE_CLASSES = (
-myapp.middleware.MyMiddlewareClass,
+myapp.middleware.AuditMiddleware,
 ...
 ```
 
@@ -155,6 +155,59 @@ class AuditMiddleware(object):
 
 [docs.djangoproject.com/en/1.10/topics/http/middleware/#writing-your-own-middleware](https://docs.djangoproject.com/en/1.10/topics/http/middleware/#writing-your-own-middleware)
 
+# Nowe middleware (od 1.10)
+
+`settings.py`:
+```
+MIDDLEWARE = (
+myapp.middleware.AuditMiddleware,
+...
+```
+
+```
+class SimpleMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+        # One-time configuration and initialization.
+
+    def __call__(self, request):
+        # Code to be executed for each request before
+        # the view (and later middleware) are called.
+
+        response = self.get_response(request)
+
+        # Code to be executed for each request/response after
+        # the view is called.
+
+        return response
+```
+
+```
+class AuditMiddleware(object):
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        try:
+            if not settings.AUDIT_REQUESTS:
+                return response
+            if not settings.AUDIT_GET_REQUESTS and request.method == 'GET':
+                return response
+
+            if request.user and request.user.id:
+                r = Request()
+                r.fill_from_request(request, response)
+                r.save()
+
+        except AttributeError:
+            # in some corner cases request.user may not be present
+            # also safeguard against missing settings
+            pass
+
+        return response
+
+```
 # Testy
 
 ```
