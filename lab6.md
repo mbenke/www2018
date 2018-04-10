@@ -22,10 +22,9 @@ date: 6 kwietnia 2018
 
 Instalacja:
 ```
-(wow) ➜  pw git:(master) pip install gunicorn
+(django2) ➜  mysite git:(master) pip install gunicorn
 Collecting gunicorn
-  Downloading gunicorn-19.7.1-py2.py3-none-any.whl (111kB)
-    100% |████████████████████████████████| 112kB 1.6MB/s 
+  Using cached gunicorn-19.7.1-py2.py3-none-any.whl
 Installing collected packages: gunicorn
 Successfully installed gunicorn-19.7.1
 ```
@@ -33,15 +32,14 @@ Successfully installed gunicorn-19.7.1
 Uruchomienie
 
 ```
-(wow) ➜  pw git:(master) ls -l pw/wsgi.py
--rw-r--r--  1 marcin  staff  379  5 sty 12:41 pw/wsgi.py
-
-(wow) ➜  pw git:(master) gunicorn pw.wsgi -b 0.0.0.0:8000 --workers=2
-[2017-04-05 16:50:49 +0200] [59259] [INFO] Starting gunicorn 19.7.1
-[2017-04-05 16:50:49 +0200] [59259] [INFO] Listening at: http://0.0.0.0:8000 (59259)
-[2017-04-05 16:50:49 +0200] [59259] [INFO] Using worker: sync
-[2017-04-05 16:50:49 +0200] [59262] [INFO] Booting worker with pid: 59262
-[2017-04-05 16:50:49 +0200] [59263] [INFO] Booting worker with pid: 59263
+(django2) ➜  mysite git:(master) ls -l mysite/wsgi.py
+-rw-r--r--  1 ben  staff  389 26 lut 16:44 mysite/wsgi.py
+(django2) ➜  mysite git:(master) gunicorn mysite.wsgi -b 0.0.0.0:8000 --workers=2
+[2018-04-10 14:03:19 +0200] [79399] [INFO] Starting gunicorn 19.7.1
+[2018-04-10 14:03:19 +0200] [79399] [INFO] Listening at: http://0.0.0.0:8000 (79399)
+[2018-04-10 14:03:19 +0200] [79399] [INFO] Using worker: sync
+[2018-04-10 14:03:19 +0200] [79404] [INFO] Booting worker with pid: 79404
+[2018-04-10 14:03:19 +0200] [79407] [INFO] Booting worker with pid: 79407
 ```
 
 # Static
