@@ -11,6 +11,7 @@ date: 6 kwietnia 2018
 * Należy umożliwić upload pliku (np. protokół obwodowy w postaci pdf) dla zalogowanych użytkowników
 * Należy zrobić middleware, które będzie logowało wszystkie żądania, które nie mają w parametrach foo=secret
 * Należy napisać test jednostkowy sprawdzający sumowanie całkowitej liczby głosów
+* Użyć fixtures do ładowania danych di bazy i w testach
 
 # Gunicorn
 
@@ -285,4 +286,44 @@ class ResultsTest(CommunityReferendumTestSetup, TestCase):
         self.assertRedirects(response, resolve_url('ref_results', ResultsTest.ref_round.id))
 
         self.context = response.context
+```
+
+# Fixtures
+
+Metoda serializacji danych modeli
+
+```
+$ ./manage.py dumpdata animals | tee animals/fixtures/animals.json
+[{"model": "animals.animal", "pk": 1, "fields": {"name": "lion", "sound": "roar"}},
+{"model": "animals.animal", "pk": 2, "fields": {"name": "cat", "sound": "meow"}}]
+
+$ sqlite3 db.sqlite3 
+sqlite> select * from animals_animal;
+1|lion|roar
+2|cat|meow
+sqlite> delete from animals_animal;
+
+$ ./manage.py loaddata animals/fixtures/animals.json
+Installed 2 object(s) from 1 fixture(s)
+$ sqlite3 db.sqlite3                                
+sqlite> select * from animals_animal;
+1|lion|roar
+2|cat|meow
+```
+
+# Fixtures w testach
+
+``` python
+class AnimalFixtureTestCase(TestCase):
+    fixtures = ['animals']
+
+    def setUp(self):
+        pass
+
+    def test_animals_can_speak(self):
+        """Animals that can speak are correctly identified"""
+        lion = Animal.objects.get(name="lion")
+        cat = Animal.objects.get(name="cat")
+        self.assertEqual(lion.speak(), 'The lion says "roar"')
+        self.assertEqual(cat.speak(), 'The cat says "meow"')
 ```
