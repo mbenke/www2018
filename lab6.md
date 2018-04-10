@@ -117,52 +117,8 @@ urlpatterns = patterns('',
 
 w produkcji to potencjalna luka bezpieczeństwa.
 
-# Middleware
-
-Django 1.9 (od 1.10 nowy system, ale stary też działa)
-
-[docs.djangoproject.com/en/1.9/topics/http/middleware/#writing-your-own-middleware](https://docs.djangoproject.com/en/1.9/topics/http/middleware/#writing-your-own-middleware)
-
-`settings.py`:
-```
-MIDDLEWARE_CLASSES = (
-myapp.middleware.AuditMiddleware,
-...
-```
-
-`myapp/middleware.py`:
-```
-class AuditMiddleware(object):
-    def process_response(self, request, response):
-        try:
-            if not settings.AUDIT_REQUESTS:
-                return response
-            if not settings.AUDIT_GET_REQUESTS and request.method == 'GET':
-                return response
-
-            if request.user and request.user.id:
-                r = Request()
-                r.fill_from_request(request, response)
-                r.save()
-
-        except AttributeError:
-            # in some corner cases request.user may not be present
-            # also safeguard against missing settings
-            pass
-
-        return response
-```
-
-[docs.djangoproject.com/en/1.10/topics/http/middleware/#writing-your-own-middleware](https://docs.djangoproject.com/en/1.10/topics/http/middleware/#writing-your-own-middleware)
 
 # Nowe middleware (od 1.10)
-
-`settings.py`:
-```
-MIDDLEWARE = (
-myapp.middleware.AuditMiddleware,
-...
-```
 
 ```
 class SimpleMiddleware:
@@ -208,6 +164,53 @@ class AuditMiddleware(object):
         return response
 
 ```
+
+`settings.py`:
+```
+MIDDLEWARE = (
+myapp.middleware.AuditMiddleware,
+...
+```
+
+<https://docs.djangoproject.com/en/2.0/topics/http/middleware/>
+
+# Stare Middleware
+
+Django do wersji 1.9 
+
+[docs.djangoproject.com/en/1.9/topics/http/middleware/#writing-your-own-middleware](https://docs.djangoproject.com/en/1.9/topics/http/middleware/#writing-your-own-middleware)
+
+`settings.py`:
+```
+MIDDLEWARE_CLASSES = (
+myapp.middleware.AuditMiddleware,
+...
+```
+
+`myapp/middleware.py`:
+```
+class AuditMiddleware(object):
+    def process_response(self, request, response):
+        try:
+            if not settings.AUDIT_REQUESTS:
+                return response
+            if not settings.AUDIT_GET_REQUESTS and request.method == 'GET':
+                return response
+
+            if request.user and request.user.id:
+                r = Request()
+                r.fill_from_request(request, response)
+                r.save()
+
+        except AttributeError:
+            # in some corner cases request.user may not be present
+            # also safeguard against missing settings
+            pass
+
+        return response
+```
+
+
 # Testy
 
 ```
