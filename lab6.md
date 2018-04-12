@@ -8,7 +8,6 @@ date: 6 kwietnia 2018
 
 * Należy zainstalować gunicorna jako alternatywny dla developerskiego sposób serwowania stron https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/gunicorn/
 * Należy zgrać statici do jednego miejsca
-* Należy umożliwić upload pliku (np. protokół obwodowy w postaci pdf) dla zalogowanych użytkowników
 * Należy zrobić middleware, które będzie logowało wszystkie żądania, które nie mają w parametrach foo=secret
 * Należy napisać test jednostkowy sprawdzający sumowanie całkowitej liczby głosów
 * Użyć fixtures do ładowania danych di bazy i w testach
@@ -56,65 +55,6 @@ cp -a /srv/app/static/* /var/www/static  # mapowane na URL /static/
 
 Może być na innym serwerze (np nginx reverse proxy), wtedy rsync, Ansible, ...
 
-
-# Upload
-
-* [docs.djangoproject.com/en/1.10/topics/http/file-uploads](https://docs.djangoproject.com/en/1.10/topics/http/file-uploads)
-* [docs.djangoproject.com/en/1.10/ref/settings/#file-upload-settings](https://docs.djangoproject.com/en/1.10/ref/settings/#file-upload-settings)
-
-`settings.py`:
-```
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-```
-
-Form:
-
-```
-class DocumentForm(forms.Form):
-    docfile = forms.FileField(
-        label='Select a file',
-        help_text='max. XX megabytes'
-    )
-```
-
-View:
-```
-def list(request):
-    # Handle file upload
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.save()
-
-            # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('myapp.views.list'))
-    else:
-        form = DocumentForm() # An empty, unbound form
-
-    # Load documents for the list page
-    documents = Document.objects.all()
-
-    # Render list page with the documents and the form
-    return render_to_response(
-        'myapp/list.html',
-        {'documents': documents, 'form': form},
-        context_instance=RequestContext(request)
-    )
-```
-
-`MEDIA_ROOT` nie jest domyślnie udostępniony, musimy to jakoś oprogramować.
-
-Na etapie programowania można
-
-```
-urlpatterns = patterns('',
-    (r'^', include('myapp.urls')),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-```
-
-w produkcji to potencjalna luka bezpieczeństwa.
 
 
 # Nowe middleware (od 1.10)
@@ -325,3 +265,65 @@ class AnimalFixtureTestCase(TestCase):
         self.assertEqual(lion.speak(), 'The lion says "roar"')
         self.assertEqual(cat.speak(), 'The cat says "meow"')
 ```
+
+# Koniec
+
+# Bonus - Upload
+
+* <https://docs.djangoproject.com/en/2.0/topics/http/file-uploads/>
+* <https://docs.djangoproject.com/en/2.0/ref/settings/#file-uploads>
+
+`settings.py`:
+```
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+```
+
+Form:
+
+```
+class DocumentForm(forms.Form):
+    docfile = forms.FileField(
+        label='Select a file',
+        help_text='max. XX megabytes'
+    )
+```
+
+View:
+```
+def list(request):
+    # Handle file upload
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(reverse('myapp.views.list'))
+    else:
+        form = DocumentForm() # An empty, unbound form
+
+    # Load documents for the list page
+    documents = Document.objects.all()
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'myapp/list.html',
+        {'documents': documents, 'form': form},
+        context_instance=RequestContext(request)
+    )
+```
+
+`MEDIA_ROOT` nie jest domyślnie udostępniony, musimy to jakoś oprogramować.
+
+Na etapie programowania można
+
+```
+urlpatterns = patterns('',
+    (r'^', include('myapp.urls')),
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+w produkcji to potencjalna luka bezpieczeństwa.
+
