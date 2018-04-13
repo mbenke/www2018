@@ -1,7 +1,7 @@
 ---
 title: Aplikacje WWW
 author: Marcin Benke
-date: 6 kwietnia 2018
+date: 13 kwietnia 2018
 ---
 
 # Plan
