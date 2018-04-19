@@ -128,7 +128,9 @@ Pozwala m.in na powtarzalne testy i instalacje
 
 W naszym scenariuszu wykorzystamy go w ramach Ciągłej Integracji
 
-Tworzenie i uruchmaianie kontenera jest opisane przez `Dockerfile`
+Tworzenie i uruchamianie kontenera jest opisane przez `Dockerfile`
+
+Nie jest zainstalowany na students, można użyć <https://labs.play-with-docker.com/> ale nie jest to dziś niezbędne.
 
 # Dockerfile
 
