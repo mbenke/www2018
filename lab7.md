@@ -204,8 +204,9 @@ W praktyce lepiej zbudować sobie pośredni kontener:
 
 ```
 FROM python:3.6
+RUN pip install --upgrade pip
 RUN pip install -U tox
-RUN pip install django==1.10
+RUN pip install django==2.0
 ```
 
 ```
