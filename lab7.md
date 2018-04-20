@@ -179,12 +179,12 @@ Successfully built 5a88a4f3949f
 # docker run
 
 ```
-cilab) ➜  www-cilab git:(master) ✗ docker run cilab
-py36 recreate: /cilab/cilab/.tox/py36
+Successfully tagged cilab:latest
+$ docker run cilab       
+py36 create: /cilab/cilab/.tox/py36
 py36 installdeps: -rrequirements.txt
-
-py36 installed: appdirs==1.4.3,Django==1.10,packaging==16.8,pyparsing==2.2.0,six==1.10.0
-py36 runtests: PYTHONHASHSEED='4064046258'
+py36 installed: Django==2.0,pytz==2018.4
+py36 runtests: PYTHONHASHSEED='4191768097'
 py36 runtests: commands[0] | /cilab/cilab/.tox/py36/bin/python manage.py test
 
 ----------------------------------------------------------------------
@@ -192,6 +192,7 @@ Ran 0 tests in 0.000s
 
 OK
 Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
 Destroying test database for alias 'default'...
 ___________________________________ summary ____________________________________
   py36: commands succeeded
