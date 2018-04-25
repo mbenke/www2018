@@ -83,11 +83,22 @@ $("body h1:first").text('welcome')
 
 [learn.jquery.com](https://learn.jquery.com/)
 
+
 # Konsola JavaScript
 
 ```
 $("h1:first").text("hello")
 ```
+
+```
+$('h1:first').load('hello.txt')
+```
+
+```
+$.ajax({url:'hello.txt',success:function(r){console.log(r);}})
+```
+
+Ale uwaga, strona musi być załadowana przez HTTP, nie z pliku
 
 ```
 $.ajax({
@@ -167,6 +178,7 @@ $("body h1:first").text('welcome')
 $('#title').html('<b>Tytuł</b>')
 ```
 
+Ćwiczenie: ustawić nagłówek na IP pobrane z `httpbin.org`
 
 # Pokazywanie/ukrywanie wierszy
 
