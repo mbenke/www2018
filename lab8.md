@@ -79,7 +79,8 @@ $ curl http://httpbin.org/get\?key\=value
 <body>
 <h1>h1</h1>
 </body>
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf8"
+  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script>
 $(document).ready(function() {
@@ -128,7 +129,8 @@ $.ajax({
 <body>
 <h1 id="h1-1">h1</h1>
 </body>
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" charset="utf8"
+src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <p id="ip"></p>
 <script>
 $(document).ready(function() {
