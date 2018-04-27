@@ -145,18 +145,6 @@ $.ajax({ url: "http://httpbin.org/ip" })
    .always(function( xhr, status ) { alert( "Done." ); });
 ```
 
-# Wskazywanie elementów
-
-Zamiast `document.getElementById('id')`
-
-wystarczy `$(selektor CSS)` np.
-
-```
-$('#table1)
-
-$('.inactive-user').hide()
-```
-
 # Tworzenie elementów
 
 ```
@@ -180,41 +168,3 @@ $('#title').html('<b>Tytuł</b>')
 
 Ćwiczenie: ustawić nagłówek na IP pobrane z `httpbin.org`
 
-# Pokazywanie/ukrywanie wierszy
-
-```
-// Requires a button with id=btn-toggle-inactive
-// toggles visibility of elements with class inactive-user
-// assumes visibility starts at hidden
-$(document).ready(function() {
-  $('.inactive-user').hide();
-  window.inactiveHidden = true;
-  $('#btn-toggle-inactive').click(function(event){
-    var btn =  $('#btn-toggle-inactive');
-    if(window.inactiveHidden) {
-      btn.text('Ukryj nieaktywnych użytkowników');
-      window.inactiveHidden = false;
-      $('.inactive-user').show();
-    } else {
-      btn.text('Pokaż nieaktywnych użytkowników');
-      window.inactiveHidden = true;
-      $('.inactive-user').hide();
-    }
-  })
-})
-```
-
-# Zaznaczenie wszystkich checkboxów
-
-Mamy ma stronie ileś checkboxów. Chcemy dodać jeszcze jeden, który
-będzie zaznaczał/odznaczał wszystkie
-
-```
-<input type="checkbox" id="all_accept">
-
-<script>    
-  $("#all_accept").change(function(event){
-  var check = event.target.checked;
-  $('#protocols .accept').prop('checked',check)});
- </script>
-```
