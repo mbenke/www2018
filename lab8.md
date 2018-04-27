@@ -18,6 +18,14 @@ nie ma jeszcze ale można przygotować się na scenariusz podobny do zesłoroczn
 * Napiszemy kod w JavaScript, który za pomocą XMLHttpRequest pobiera wyniki, rozparsowuje je i wyświetla na stronie
 * Uczymy się używać konsoli javascript
 
+# Schemat działania
+
+* Statyczna strona (za ka∂zym pobraniem ten sam kod) HTML
+* Zawiera kod JavaScript pobierający dane
+* Statyczna strona może być cache'owana
+* Mniej ruchu sieciowego i pracy po stronie serwera
+* Większa wydajność
+
 # JSONResponse
 
 Używamy Django jak dotąd, tylko widok zamiast HTML serwuje JSON
