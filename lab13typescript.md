@@ -14,3 +14,7 @@ tsc  tsserver
 ```
 
 <https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes>
+
+# Websockets
+
+Tutorial Jana Wróblewskiego: <https://www.mimuw.edu.pl/~xi/www-2017L-websockets>
